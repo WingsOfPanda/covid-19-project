@@ -12,8 +12,8 @@ from helper.config_status_writer import restarting_position
 import json
 import random
 
-train_file_folder = '/home/liupan/Pneumonia_v3/PneumoniaCls/dataPreprocessing/DocCleanedSevenCls/tf_dir_train' # The path of the training tfrecords file.
-valid_file_folder = '/home/liupan/Pneumonia_v3/PneumoniaCls/dataPreprocessing/DocCleanedSevenCls/tf_dir_valid'  # The path of the validation tfrecords file.
+train_file_folder = '/home/liupan/Pneumonia_v3/PneumoniaCls/dataPreprocessing/tf_dir_train' # The path of the training tfrecords file.
+valid_file_folder = '/home/liupan/Pneumonia_v3/PneumoniaCls/dataPreprocessing/tf_dir_valid'  # The path of the validation tfrecords file.
 
 
 def json_loader(json_dir):
@@ -50,7 +50,7 @@ def file_lister(folder_dir, key=None):
     file_lists = [os.path.join(folder_dir, f) for f in fs if key in f]
     return file_lists
 
-tfrecords_folder = '/data/liupan/pneuCls/DocCleanRawImgTV2tfCrop448D64W224H224'
+tfrecords_folder = '/data/liupan/pneuCls/RawImgTV2tfCrop448D64W224H224'
 
 if os.path.isdir(tfrecords_folder):
     train_folders = file_lister(tfrecords_folder, key='training')
@@ -75,7 +75,7 @@ ckpt_path = './' + saving_name
 restore_from_best_valid_ckpt = False # if false, then restore from the lastest ckpt
 
 
-if restore_from_best_valid_ckpt: best_ckpt_path = '/home/liupan/Pneumonia_v3/Pneumonia_classification/multiCls/crop432d64wh224/0515_denseNet264G/fresh_start_0515/epoch_23_valid_0.8727598566308243'
+if restore_from_best_valid_ckpt: best_ckpt_path = ''
 
 
 
